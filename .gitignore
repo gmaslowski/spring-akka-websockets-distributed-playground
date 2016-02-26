@@ -1,6 +1,8 @@
 # gradle
 .gradle/
+target/
 
 # intellij
 .idea/
 *.iml
+build

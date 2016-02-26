@@ -22,14 +22,16 @@ jar {
 
 dependencies {
     // scala
-    compile("org.scala-lang:scala-library:2.11.7")
+    compile 'org.scala-lang:scala-library:2.11.7'
+
+    // akka
+    compile 'com.typesafe.akka:akka-actor_2.11:2.4.2'
 
     // spring boot
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
-    }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    compile 'org.springframework:spring-messaging'
 }
 
 task wrapper(type: Wrapper) {
