@@ -6,17 +6,16 @@ import com.gmaslowski.sawdp.processing.SchedulingActor.ScheduleProcessing
 
 object SchedulingActor {
 
-  def props(processingActor: ActorRef) = Props(classOf[SchedulingActor], processingActor)
+  def props(processingActor: ActorRef, notifyingActor: ActorRef) = Props(classOf[SchedulingActor], processingActor, notifyingActor)
 
   case class ScheduleProcessing(content: String)
-
 }
 
-class SchedulingActor(processingActor: ActorRef) extends Actor with ActorLogging {
+class SchedulingActor(processingActor: ActorRef, notifyingActor: ActorRef) extends Actor with ActorLogging {
 
   override def receive = {
 
     case ScheduleProcessing(content) =>
-      processingActor ! new ProcessMessage(self, content)
+      processingActor ! new ProcessMessage(notifyingActor, content)
   }
 }
