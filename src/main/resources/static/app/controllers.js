@@ -2,14 +2,12 @@ angular.module("processingApp.controllers")
     .controller("processingController", function ($scope, processingService) {
 
         $scope.messages = [];
-        $scope.message = "";
 
-        $scope.addMessage = function () {
-            processingService.send($scope.message);
-            $scope.message = "";
+        $scope.startProcessing = function () {
+            processingService.startProcessing();
         };
 
-        processingService.receive().then(null, null, function (message) {
-            $scope.messages.push(message.text);
+        processingService.receive().then(null, null, function (incoming) {
+            $scope.messages.push(incoming.text);
         });
     });

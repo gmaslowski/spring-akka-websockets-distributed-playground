@@ -2,7 +2,7 @@
 <html lang="en">
 <body ng-app="processingApp">
 <div ng-controller="processingController" class="container">
-    <form ng-submit="addMessage()" name="messageForm">
+    <form ng-submit="startProcessing()" name="messageForm">
 
         <div class="info">
             <button ng-disabled="mesages.length === 0">Start processing</button>

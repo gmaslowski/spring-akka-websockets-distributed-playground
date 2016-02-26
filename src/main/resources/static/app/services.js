@@ -16,7 +16,7 @@ angular.module("processingApp.services")
             return listener.promise;
         };
 
-        service.send = function (message) {
+        service.startProcessing = function () {
             socket.stomp.send(service.PROCESSING_BROKER, {
                 priority: 9
             }, JSON.stringify({
