@@ -1,0 +1,5 @@
+apply plugin: scala
+apply plugin: java
+
+dependencies {
+}
