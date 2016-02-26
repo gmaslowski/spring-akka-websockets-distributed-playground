@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
+@ComponentScan("com.gmaslowski.sawdp")
 @Import({
         AkkaConfiguration.class,
         StompConfiguration.class

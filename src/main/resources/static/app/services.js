@@ -8,15 +8,16 @@ angular.module("processingApp.services")
 
         service.RECONNECT_TIMEOUT = 30000;
         service.SOCKET_URL = "/process";
-        service.CHAT_TOPIC = "/topic/processing";
-        service.CHAT_BROKER = "/app/process";
+
+        service.PROCESSING_TOPIC = "/topic/processing";
+        service.PROCESSING_BROKER = "/app/process";
 
         service.receive = function () {
             return listener.promise;
         };
 
         service.send = function (message) {
-            socket.stomp.send(service.CHAT_BROKER, {
+            socket.stomp.send(service.PROCESSING_BROKER, {
                 priority: 9
             }, JSON.stringify({
                 content: "client"
@@ -36,7 +37,7 @@ angular.module("processingApp.services")
         };
 
         var startListener = function () {
-            socket.stomp.subscribe(service.CHAT_TOPIC, function (data) {
+            socket.stomp.subscribe(service.PROCESSING_TOPIC, function (data) {
                 listener.notify(getMessage(data.body));
             });
         };

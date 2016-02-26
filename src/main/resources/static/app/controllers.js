@@ -10,6 +10,6 @@ angular.module("processingApp.controllers")
         };
 
         processingService.receive().then(null, null, function (message) {
-            $scope.messages.push(message);
+            $scope.messages.push(message.text);
         });
     });

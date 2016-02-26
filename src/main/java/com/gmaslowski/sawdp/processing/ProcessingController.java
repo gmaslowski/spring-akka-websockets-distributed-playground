@@ -6,6 +6,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
+import java.util.UUID;
+
 @Controller
 public class ProcessingController {
 
@@ -14,7 +16,6 @@ public class ProcessingController {
     @MessageMapping("/process")
     @SendTo("/topic/processing")
     public ProcessingInProgressMessage startProcess(StartProcessingMessage message) throws Exception {
-        logger.info("here");
-        return new ProcessingInProgressMessage("Hello!");
+        return new ProcessingInProgressMessage(UUID.randomUUID().toString());
     }
 }
