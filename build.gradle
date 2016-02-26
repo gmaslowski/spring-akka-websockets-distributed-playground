@@ -1,5 +1,9 @@
-apply plugin: scala
-apply plugin: java
+apply plugin: 'scala'
+apply plugin: 'java'
 
 dependencies {
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.11'
 }
